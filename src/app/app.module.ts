@@ -12,6 +12,8 @@ import { reducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ParkListComponent } from './components/parks/park-list/park-list.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ParkEffects } from './effects/parks.effects';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ParkListComponent } from './components/parks/park-list/park-list.compon
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EffectsModule.forRoot([ParkEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

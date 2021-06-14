@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { applicationIsStarted } from './actions/app.actions';
+import { AppState } from './reducers';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'outings-client';
+
+  constructor(store: Store<AppState>) {
+    store.dispatch(applicationIsStarted());
+  }
 }
